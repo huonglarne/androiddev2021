@@ -13,8 +13,12 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         Log.i("here", "create");
 
-        ForecastFragment fragment = new ForecastFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+        ForecastFragment ff = new ForecastFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.forecast_frag, ff, null).commit();
+
+        WeatherFragment wf = new WeatherFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.weather_frag, wf, null).commit();
+
     }
 
     @Override
