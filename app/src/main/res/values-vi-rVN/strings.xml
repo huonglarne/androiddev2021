@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">USTHWeather</string>
+    <string name="Mon">Thu 2</string>
+    <string name="Tue">Thu 3</string>
+    <string name="Wed">Thu 4</string>
+    <string name="Thu">Thu 5</string>
+    <string name="Fri">Thu 6</string>
+    <string name="Sat">Thu 7</string>
+    <string name="Sun">Chu Nhat</string>
+</resources>

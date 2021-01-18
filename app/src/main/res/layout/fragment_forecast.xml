@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:text="Monday"/>
+            android:text="@string/Mon"/>
         <ImageView
             android:layout_width="60dp"
             android:layout_height="match_parent"
@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:text="Tuesday"/>
+            android:text="@string/Tue"/>
         <ImageView
             android:layout_width="60dp"
             android:layout_height="match_parent"
@@ -44,7 +44,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:text="Wednesday"/>
+            android:text="@string/Wed"/>
         <ImageView
             android:layout_width="60dp"
             android:layout_height="match_parent"
@@ -58,7 +58,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:text="Thursday"/>
+            android:text="@string/Thu"/>
         <ImageView
             android:layout_width="60dp"
             android:layout_height="match_parent"
@@ -72,7 +72,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:text="Friday"/>
+            android:text="@string/Fri"/>
         <ImageView
             android:layout_width="60dp"
             android:layout_height="match_parent"
@@ -87,7 +87,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:text="Saturday"/>
+            android:text="@string/Sat"/>
         <ImageView
             android:layout_width="60dp"
             android:layout_height="match_parent"
@@ -101,7 +101,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:text="Sunday"/>
+            android:text="@string/Sun"/>
         <ImageView
             android:layout_width="60dp"
             android:layout_height="match_parent"
