@@ -5,21 +5,32 @@
     android:layout_height="match_parent"
     tools:context=".WeatherFragment">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/frame"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="28*C Sunny"
         android:layout_alignParentLeft="true"
-        android:textSize="6pt"
-        android:id="@+id/first_text"/>
+        android:textSize="12pt"
+        android:id="@+id/first_text"
+        android:paddingTop="12pt"
+        android:paddingLeft="12pt"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hanoi"
         android:layout_alignParentRight="true"
-        android:textSize="6pt"
-        android:id="@+id/left_text"/>
+        android:textSize="12pt"
+        android:id="@+id/second_text"
+        android:paddingTop="12pt"
+        android:paddingRight="12pt"/>
 
     <ImageView
         android:layout_width="match_parent"
