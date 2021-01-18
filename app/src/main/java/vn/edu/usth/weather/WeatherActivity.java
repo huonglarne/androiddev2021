@@ -20,31 +20,26 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        setContentView(R.layout.activity_weather);
         Log.i("here", "start");
     }
 
     protected void onResume() {
         super.onResume();
-        setContentView(R.layout.activity_weather);
         Log.i("here", "resume");
     }
 
     protected void onPause() {
         super.onPause();
-        setContentView(R.layout.activity_weather);
         Log.i("here", "pause");
     }
 
     protected void onStop() {
         super.onStop();
-        setContentView(R.layout.activity_weather);
         Log.i("here", "stop");
     }
 
     protected void onDestroy() {
         super.onDestroy();
-        setContentView(R.layout.activity_weather);
         Log.i("here", "destroy");
     }
 }

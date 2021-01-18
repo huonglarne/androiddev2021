@@ -23,12 +23,6 @@ public class ForecastFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         view.setBackgroundColor(Color.parseColor("#20FF0011"));
 
-        LinearLayout layout = new LinearLayout(this.getContext());
-        layout.setOrientation(LinearLayout.VERTICAL);
-
-        LinearLayout main = (LinearLayout) view.findViewById(R.id.main_forecast);
-        main.addView(layout);
-
         return view;
     }
 }

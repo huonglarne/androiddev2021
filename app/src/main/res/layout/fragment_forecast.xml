@@ -6,11 +6,10 @@
     android:orientation="vertical"
     android:background="#20FF0000"
     android:layout_gravity="center"
-    android:id="@+id/main_forecast"
+    android:id="@+id/container"
     tools:context=".ForecastFragment">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
@@ -25,7 +24,6 @@
     </LinearLayout>
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
@@ -40,7 +38,6 @@
     </LinearLayout>
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
@@ -49,14 +46,12 @@
             android:layout_height="match_parent"
             android:text="Wednesday"/>
         <ImageView
-            android:layout_toRightOf="@id/day"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:src="@drawable/sunny" />
     </LinearLayout>
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
@@ -71,7 +66,6 @@
     </LinearLayout>
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
@@ -101,7 +95,6 @@
     </LinearLayout>
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
