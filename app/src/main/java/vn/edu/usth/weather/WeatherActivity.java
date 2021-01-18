@@ -8,8 +8,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,10 +22,15 @@ import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,14 +65,24 @@ public class WeatherActivity extends AppCompatActivity {
             case R.id.refresh:
             {
                 AsyncTask<String, Integer, Bitmap> task = new AsyncTask<String, Integer, Bitmap>() {
+                    Bitmap bitmap;
+
                     @Override
                     protected Bitmap doInBackground(String... strings) {
                         try {
-                            Thread.sleep(1311);
-                        } catch (InterruptedException e) {
+                            URL url = new URL(strings[0]);
+
+                            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                            connection.setRequestMethod("GET");
+                            connection.setDoInput(true);
+                            connection.connect();
+
+                            InputStream inputStream = connection.getInputStream();
+                            bitmap = BitmapFactory.decodeStream(inputStream);
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        return null;
+                        return bitmap;
                     }
 
                     @Override
@@ -80,10 +97,11 @@ public class WeatherActivity extends AppCompatActivity {
 
                     @Override
                     protected void onPostExecute(Bitmap bitmap) {
-                        Toast.makeText(getApplicationContext(), "here okay?", Toast.LENGTH_LONG).show();
+                        ImageView logo = (ImageView) findViewById(R.id.logo);
+                        logo.setImageBitmap(bitmap);
                     }
                 };
-                task.execute("");
+                task.execute("https://usth.edu.vn/uploads/logo_moi-eng.png");
                 return true;
             }
 
