@@ -14,12 +14,19 @@
         <fragment
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:name="vn.edu.usth.weather.WeatherFragment"/>
+            android:name="vn.edu.usth.weather.WeatherFragment"
+            android:layout_weight="1"/>
 
-        <fragment
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:name="vn.edu.usth.weather.ForecastFragment"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="vn.edu.usth.weather.ForecastFragment"
+                android:id="@+id/forecast_frag"/>
+        </ScrollView>
     </LinearLayout>
 
 </FrameLayout>
