@@ -25,6 +25,10 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.IOException;
@@ -64,44 +68,20 @@ public class WeatherActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.refresh:
             {
-                AsyncTask<String, Integer, Bitmap> task = new AsyncTask<String, Integer, Bitmap>() {
-                    Bitmap bitmap;
-
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                Response.Listener<Bitmap> responseListener = new Response.Listener<Bitmap>() {
                     @Override
-                    protected Bitmap doInBackground(String... strings) {
-                        try {
-                            URL url = new URL(strings[0]);
-
-                            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                            connection.setRequestMethod("GET");
-                            connection.setDoInput(true);
-                            connection.connect();
-
-                            InputStream inputStream = connection.getInputStream();
-                            bitmap = BitmapFactory.decodeStream(inputStream);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        return bitmap;
-                    }
-
-                    @Override
-                    protected void onPreExecute() {
-
-                    }
-
-                    @Override
-                    protected void onProgressUpdate(Integer... values) {
-                        super.onProgressUpdate(values);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bitmap bitmap) {
+                    public void onResponse(Bitmap response) {
                         ImageView logo = (ImageView) findViewById(R.id.logo);
-                        logo.setImageBitmap(bitmap);
+                        logo.setImageBitmap(response);
                     }
                 };
-                task.execute("https://usth.edu.vn/uploads/logo_moi-eng.png");
+
+                ImageRequest imageRequest = new ImageRequest(
+                        "https://usth.edu.vn/uploads/logo_moi-eng.png", responseListener,
+                        0, 0, ImageView.ScaleType.CENTER, Bitmap.Config.ARGB_8888, null);
+
+                requestQueue.add(imageRequest);
                 return true;
             }
 
