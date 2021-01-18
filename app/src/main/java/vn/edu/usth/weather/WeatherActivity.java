@@ -8,10 +8,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -34,6 +38,32 @@ public class WeatherActivity extends AppCompatActivity {
 
         MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.intro);
         mediaPlayer.start();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.refresh:
+            {
+                Toast.makeText(getApplicationContext(), "Refreshing", Toast.LENGTH_LONG).show();
+                return true;
+            }
+
+            case R.id.setting:
+            {
+                Intent intent = new Intent(this, PrefActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void addTab(ViewPager viewPager)
