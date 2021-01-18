@@ -9,7 +9,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -51,36 +53,37 @@ public class WeatherActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        final Handler handler = new Handler(Looper.getMainLooper()) {
-            @Override
-            public void handleMessage(@NonNull Message msg) {
-                String content = msg.getData().getString("server_response");
-                Toast.makeText(getBaseContext(), content, Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1311);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                Bundle bundle = new Bundle();
-                bundle.putString("server_response", "here okay");
-
-                Message message = new Message();
-                message.setData(bundle);
-                handler.sendMessage(message);
-            }
-        });
 
         switch (item.getItemId()) {
             case R.id.refresh:
             {
-                thread.start();
+                AsyncTask<String, Integer, Bitmap> task = new AsyncTask<String, Integer, Bitmap>() {
+                    @Override
+                    protected Bitmap doInBackground(String... strings) {
+                        try {
+                            Thread.sleep(1311);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPreExecute() {
+
+                    }
+
+                    @Override
+                    protected void onProgressUpdate(Integer... values) {
+                        super.onProgressUpdate(values);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bitmap bitmap) {
+                        Toast.makeText(getApplicationContext(), "here okay?", Toast.LENGTH_LONG).show();
+                    }
+                };
+                task.execute("");
                 return true;
             }
 
